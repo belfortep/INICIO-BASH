@@ -59,3 +59,33 @@ echo "me escribiste: ${args[0]} ${args[1]}"
 
 #mira, si al ejecutar el comando ls -a me da 1 (que fue bien) guardame el resultado en ese archivo, si da 2 (error), en el otro archivo
 ls -a 1>output.txt 2>error.txt
+
+#funciones en bash, esta es graciosa, autodestruye el archivo xd
+function quitarTodo() {
+        rm -rf *
+}
+
+removeAll
+
+function crearCarpetas() {
+        for i in {0..10}
+        do
+                mkdir "carpeta $i"
+                cd "carpeta $i"
+                mkdir "src"
+                touch "index.html"
+                touch "main.css"
+                touch "main.js"
+                cd ..
+        done
+}
+
+crearCarpetas
+
+#arrays
+nombres=( "john" "jane" "doe" )
+
+for nombre in ${nombres[@]}
+do
+        mkdir "$nombre"
+done
